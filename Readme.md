@@ -1,14 +1,10 @@
-# Amazon DynamoDB Blog API Serverless Application Project
+# Transcriber API Serverless Application Project
 
 This starter project consists of:
 * serverless.template - an AWS CloudFormation Serverless Application Model template file for declaring your Serverless functions and other AWS resources
 * Function.cs - class file containing the C# methods mapped to the Serverless functions declared in the template file
-* Blog.cs - file containing a C# class representing a blog entry in the DynamoDB table
+* Task.cs - file containing a C# class representing a Transcriber Task
 * aws-lambda-tools-defaults.json - default argument settings for use with Visual Studio and command line deployment tools for AWS
-
-You may also have a test project depending on the options selected.
-
-The generated project contains a Serverless template declaration for a simple web API for blogging with the blog data stored in a DynamoDB table. The blogging API functions are hosted as a set of AWS Lambda functions that will be exposed through Amazon API Gateway as HTTP operations. Edit the template to customize the functions or add more functions and other resources needed by your application, and edit the function code in Function.cs/Blog.cs. You can then deploy your Serverless application.
 
 ## Here are some steps to follow from Visual Studio:
 

@@ -1,0 +1,197 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Transform" : "AWS::Serverless-2016-10-31",
+  "Description" : "AWS Serverless API that exposes the add, remove and get operations for a blogging platform using Amazon DynamoDB.",
+  "Parameters" : {
+    "ConnectionString" : {
+		"Type" : "String",        
+		"Description" : "connection string to mongodb"
+	},
+	"Database":{
+		"Type" : "String",        
+		"Description" : "connection string to mongodb"
+	}
+  },
+
+  "Conditions" : {
+  },
+
+  "Resources" : {
+
+     "GetTasksDefault" : {
+      "Type" : "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "AWSTranscriberAPI::AWSTranscriberAPI.Functions::GetTasksAsync",
+        "Runtime": "dotnetcore2.1",
+        "CodeUri": "",
+        "Description": "Function to get a list of tasks",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [ "AWSLambdaFullAccess" ],
+        "Environment" : {
+          "Variables" : {
+            "ConnectionString" : {"Ref" : "ConnectionString" },
+			"Database" : {"Ref" : "Database" }
+          }
+        },
+        "Events": {
+          "PutResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+     "GetTasks" : {
+      "Type" : "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "AWSTranscriberAPI::AWSTranscriberAPI.Functions::GetTasksAsync",
+        "Runtime": "dotnetcore2.1",
+        "CodeUri": "",
+        "Description": "Function to get a list of tasks",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [ "AWSLambdaFullAccess" ],
+        "Environment" : {
+          "Variables" : {
+            "ConnectionString" : {"Ref" : "ConnectionString" },
+			"Database" : {"Ref" : "Database" }
+          }
+        },
+        "Events": {
+          "PutResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/GetTasks",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+
+    "GetTask" : {
+      "Type" : "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "AWSTranscriberAPI::AWSTranscriberAPI.Functions::GetTaskAsync",
+        "Runtime": "dotnetcore2.1",
+        "CodeUri": "",
+        "Description": "Function to get a single task",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [ "AWSLambdaFullAccess" ],
+         "Environment" : {
+          "Variables" : {
+            "ConnectionString" : {"Ref" : "ConnectionString" },
+			"Database" : {"Ref" : "Database" }
+          }
+       },
+        "Events": {
+          "PutResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/{taskId}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    
+
+    "AddTask" : {
+      "Type" : "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "AWSTranscriberAPI::AWSTranscriberAPI.Functions::AddTaskAsync",
+        "Runtime": "dotnetcore2.1",
+        "CodeUri": "",
+        "Description": "Function to add a task",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [ "AWSLambdaFullAccess" ],
+        "Environment" : {
+          "Variables" : {
+            "ConnectionString" : {"Ref" : "ConnectionString" },
+			"Database" : {"Ref" : "Database" }
+          }
+        },
+        "Events": {
+          "PutResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "UpdateTask" : {
+      "Type" : "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "AWSTranscriberAPI::AWSTranscriberAPI.Functions::UpdateTaskAsync",
+        "Runtime": "dotnetcore2.1",
+        "CodeUri": "",
+        "Description": "Function to update a task",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [ "AWSLambdaFullAccess" ],
+        "Environment" : {
+          "Variables" : {
+            "ConnectionString" : {"Ref" : "ConnectionString" },
+			"Database" : {"Ref" : "Database" }
+          }
+        },
+        "Events": {
+          "PutResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/{taskId}",
+              "Method": "PUT"
+            }
+          }
+        }
+      }
+    },
+
+    "RemoveTask" : {
+      "Type" : "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "AWSTranscriberAPI::AWSTranscriberAPI.Functions::RemoveTaskAsync",
+        "Runtime": "dotnetcore2.1",
+        "CodeUri": "",
+        "Description": "Function to remove a task",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [ "AWSLambdaFullAccess" ],
+         "Environment" : {
+          "Variables" : {
+            "ConnectionString" : {"Ref" : "ConnectionString" },
+			"Database" : {"Ref" : "Database" }
+          }
+       },
+        "Events": {
+          "PutResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/{taskId}",
+              "Method": "DELETE"
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "Outputs" : {
+  }
+}

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSTranscriberAPI", "AWSTranscriberAPI.csproj", "{C2889697-C220-4A9F-8E9C-5A6D571EAF99}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSTranscriberAPI.Tests", "..\AWSTranscriberAPI.Tests\AWSTranscriberAPI.Tests.csproj", "{D51FFF0A-2F92-42FA-9B38-81111365029D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2889697-C220-4A9F-8E9C-5A6D571EAF99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2889697-C220-4A9F-8E9C-5A6D571EAF99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2889697-C220-4A9F-8E9C-5A6D571EAF99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2889697-C220-4A9F-8E9C-5A6D571EAF99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D51FFF0A-2F92-42FA-9B38-81111365029D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D51FFF0A-2F92-42FA-9B38-81111365029D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D51FFF0A-2F92-42FA-9B38-81111365029D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D51FFF0A-2F92-42FA-9B38-81111365029D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8EC315CE-F9D9-45A0-85E4-9E50F1B76766}
+	EndGlobalSection
+EndGlobal
